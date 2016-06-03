@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title th:text="${msg}">1</title>
+<script>
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+</script>
+</head>
+<body>
+	<h1>Welcome</h1>
+	<p th:text="${homebean.name}"></p>
+	<p>
+		Click <a th:href="@{/hello}">here</a> to see a greeting.
+	</p>
+	<p>
+		Click <a th:href="@{/onlinestore}">here</a> online store.
+	</p>
+	<p>
+		For Java Script Page : <a th:href="@{/firstJavaScript}"> click
+			here</a>
+	</p>
+</body>
+</html>
